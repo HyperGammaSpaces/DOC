@@ -755,12 +755,14 @@ Sets active text type according to subcode. The text type is what dictates how c
 
 - `TEXTSTART` sets text type 0, which is background-less regular dialogue.
 - `REMOVEPORTRAITS` sets text type 1, which is regular dialogue with background.
-- `_1A22` sets text type 2, which is CG with text (only cg background available is the lyon + twins one).
+- `_1A22` sets text type 2, which is CG with text (only cg background available is the lyon + twins one). (proposed name `CGTEXTSTART`)
 - `TUTORIALTEXTBOXSTART` sets text type 3, which is displaying text in the yellow box thing
 - `SOLOTEXTBOXSTART` sets text type 4, which is displaying text in a single regular dialogue box
-- `_0x1A25` sets text type 5, which is also displaying in the yellow box thing... but slightly differently? TODO: investigate
+- `_0x1A25` sets text type 5, which is also displaying text in the yellow box thing, but on the worldmap. (Used in tutorials, proposed name `WM_TUTORIALTEXTBOXSTART`)
 
 If the new text type is different from the previously active text type, this will end text interpreters and clear text and portraits. This notably means you can't use the `[Events]`/`TEXTCONT` text code to switch from one text type to another mid-dialogue (you'd need to use two different text entries to have this effect).
+
+`TUTORIALTEXTBOXSTART` and `WM_TUTORIALTEXTBOXSTART` use the coords in `sB` to determine where to draw. A value of `0xFFFFFFFF` in `sB` auto-centers the box.
 
 ---
 
